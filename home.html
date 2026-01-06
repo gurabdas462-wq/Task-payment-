@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskPay - Home</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>📝 Tasks List</h2>
+    <ul class="task-list">
+        <li onclick="earnCoins(15)">🎥 Watch Ads – Earn 15 Coins</li>
+        <li onclick="earnCoins(10)">📅 Daily Check-in – Earn 10 Coins</li>
+        <li onclick="earnCoins(250)">👥 Refer & Earn – Earn 250 Coins</li>
+        <li onclick="earnCoins(100)">📱 Install App Task – Earn 100 Coins</li>
+    </ul>
+    <div class="wallet">
+        <h3>Your Coins: <span id="coins">0</span></h3>
+        <p>10 Coins = ₹1, 50 Coins = ₹6, 100 Coins = ₹20</p>
+        <button onclick="window.location.href='wallet.html'">Go to Wallet</button>
+    </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
