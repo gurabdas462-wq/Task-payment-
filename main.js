@@ -1,0 +1,7 @@
+let dailyLimit = 1000;
+let user = { coins: 0, dailyEarned: 0 };
+function login() { const input = document.getElementById('userInput')?.value; if(input){ alert(`Welcome ${input}!`); window.location.href='home.html'; } else { alert('Enter Mobile / Email'); } }
+function earnCoins(taskCoins){ if(user.dailyEarned + taskCoins <= dailyLimit){ user.coins += taskCoins; user.dailyEarned += taskCoins; const coinDisplay = document.getElementById('coins') || document.getElementById('coinsWallet'); if(coinDisplay) coinDisplay.innerText = user.coins; alert(`Congrats! You earned ${taskCoins} coins`); } else { alert("Daily earning limit reached"); } }
+function convertCoinsToRupees(coins){ const COIN_CONVERSION = { 10:1, 50:6, 100:20, 1000:120, 5000:700 }; let rupees = 0; for(let key of Object.keys(COIN_CONVERSION).sort((a,b)=>b-a)){ let k = parseInt(key); let count = Math.floor(coins / k); rupees += count * COIN_CONVERSION[k]; coins -= count * k; } return rupees; }
+function setDailyLimit(){ const val = parseInt(document.getElementById('dailyLimitInput')?.value); if(val && val>0){ dailyLimit=val; alert(`Daily earning limit set to ${dailyLimit} coins`); } else { alert('Enter valid number'); } }
+function submitWithdraw(){ const input = document.getElementById('withdrawInput')?.value; if(input && user.coins>=3000){ alert('Withdraw request submitted!'); user.coins-=3000; document.getElementById('coinsWallet').innerText = user.coins; } else { alert('Invalid input or minimum coins not reached'); } }
